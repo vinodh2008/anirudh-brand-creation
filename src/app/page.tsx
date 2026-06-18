@@ -2,7 +2,6 @@ import { Hero } from "@/components/home/Hero";
 import { ClientLogos } from "@/components/home/ClientLogos";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { ServicesDetail } from "@/components/home/ServicesDetail";
-import { IndustriesGrid } from "@/components/home/IndustriesGrid";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { FeaturedProjects } from "@/components/home/FeaturedProjects";
 import { Testimonials } from "@/components/shared/Testimonials";
@@ -16,7 +15,6 @@ export default function Home() {
       <ClientLogos />
       <ServicesGrid />
       <ServicesDetail />
-      <IndustriesGrid />
       <FeaturedProjects />
       <WhyChooseUs />
       <Testimonials />

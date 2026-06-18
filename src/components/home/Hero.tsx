@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { businessInfo } from "@/config/businessInfo";
 
 const slides = [
   {
@@ -120,7 +121,7 @@ export function Hero() {
           </h1>
 
           <p className="text-base md:text-lg text-white/80 mb-4 max-w-xl leading-relaxed">
-            Premium LED Sign Board Manufacturers in Hyderabad — specialising in Hospital Signage, Reception Signage, Wayfinding, Pylon Sign Boards &amp; ACP Cladding.
+            Premium LED Sign Board Manufacturers in Secunderabad &amp; Hyderabad — specialising in Hospital Signage, Reception Signage, Wayfinding, Pylon Sign Boards &amp; ACP Cladding.
           </p>
           <p className="text-sm text-white/60 mb-8">
             From design to installation — complete signage solutions delivered on time.
@@ -129,14 +130,14 @@ export function Hero() {
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4">
             <a
-              href="tel:+919999999999"
+              href={businessInfo.phoneUrl}
               className="flex items-center gap-2 bg-[#fe6b00] text-white px-7 py-4 font-semibold text-sm uppercase tracking-widest hover:bg-orange-600 transition-all duration-300 shadow-lg"
             >
               <span className="material-symbols-outlined text-lg">call</span>
               Call Now
             </a>
             <a
-              href="https://wa.me/919999999999?text=Hi%2C%20I%20need%20a%20signage%20quote"
+              href={businessInfo.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-[#25D366] text-white px-7 py-4 font-semibold text-sm uppercase tracking-widest hover:bg-[#1da851] transition-all duration-300 shadow-lg"

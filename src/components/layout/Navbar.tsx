@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { businessInfo } from "@/config/businessInfo";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,13 +33,16 @@ export function Navbar() {
         }`}
       >
         <nav className="flex justify-between items-center w-full px-6 md:px-20 py-4 max-w-[1440px] mx-auto">
-          <Link href="/" className="h-10 md:h-12 z-50 flex-shrink-0">
+          {/* Brand Logo with modern hover effect */}
+          <Link href="/" className="group h-10 md:h-12 z-50 flex-shrink-0 relative transition-transform duration-300 hover:scale-105 active:scale-95">
             <Image
               src="/images/anirudh-logo.png"
-              alt="Anirudh Brand Creation Logo - LED Sign Board Manufacturers Hyderabad"
+              alt={`${businessInfo.name} Logo - LED Sign Board Manufacturers Hyderabad`}
               width={160}
               height={48}
-              className="h-full w-auto object-contain"
+              className={`h-full w-auto object-contain transition-all duration-300 ${
+                isScrolled ? "brightness-100" : "brightness-0 invert group-hover:brightness-100 group-hover:invert-0"
+              }`}
               priority
             />
           </Link>
@@ -59,19 +63,19 @@ export function Navbar() {
 
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="tel:+919999999999"
-              className={`flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider transition-colors ${
+              href={businessInfo.phoneUrl}
+              className={`flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider transition-colors duration-200 ${
                 isScrolled ? "text-black hover:text-[#fe6b00]" : "text-white hover:text-[#fe6b00]"
               }`}
             >
               <span className="material-symbols-outlined text-base">call</span>
-              Call
+              Call: {businessInfo.phone}
             </a>
             <Link
               href="/contact"
-              className="bg-[#fe6b00] text-white px-5 py-2.5 text-xs font-semibold uppercase tracking-wider hover:bg-orange-600 transition-all duration-300"
+              className="bg-[#fe6b00] text-white px-5 py-2.5 text-xs font-semibold uppercase tracking-wider hover:bg-orange-600 transition-all duration-300 shadow-sm"
             >
-              Get Quote
+              Contact Us
             </Link>
           </div>
 
@@ -110,14 +114,14 @@ export function Navbar() {
           </ul>
           <div className="mt-auto pt-6 border-t border-gray-200 space-y-3">
             <a
-              href="tel:+919999999999"
+              href={businessInfo.phoneUrl}
               onClick={() => setIsMobileMenuOpen(false)}
               className="bg-[#fe6b00] text-white text-center px-6 py-4 text-sm font-semibold uppercase tracking-wider w-full flex items-center justify-center gap-2"
             >
               <span className="material-symbols-outlined">call</span> Call Now
             </a>
             <a
-              href="https://wa.me/919999999999"
+              href={businessInfo.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
