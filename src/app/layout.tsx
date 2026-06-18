@@ -4,27 +4,29 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MobileStickyCTA } from "@/components/layout/MobileStickyCTA";
+import { FloatingButtons } from "@/components/layout/FloatingButtons";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: {
-    default: "Anirudh Brand Creation | Premium Signage & Branding in Hyderabad",
+    default: "Anirudh Brand Creation | LED Sign Board Manufacturers in Hyderabad | Sign Board Manufacturers in Hyderabad",
     template: "%s | Anirudh Brand Creation",
   },
-  description: "Top-tier LED sign board manufacturers and branding experts in Hyderabad. Specializing in corporate branding, hospital wayfinding, retail, and real estate signage.",
+  description: "Anirudh Brand Creation – Leading LED Sign Board Manufacturers in Hyderabad. Specialists in Hospital Signage, Reception Signage, Wayfinding Signage, Pylon Sign Boards, ACP Cladding, and Digital Signage Solutions. 500+ projects completed.",
   keywords: [
-    "signage company in Hyderabad",
-    "LED sign board manufacturers in Hyderabad",
-    "hospital signage solutions",
-    "wayfinding signage systems",
-    "acrylic sign boards Hyderabad",
-    "3D letter signage",
+    "LED Sign Board Manufacturers in Hyderabad",
+    "Sign Board Manufacturers in Hyderabad",
+    "Hospital Signage Board Manufacturers in Hyderabad",
+    "Reception Signage Board Manufacturers",
+    "Wayfinding Signage Hyderabad",
+    "Pylon Sign Boards Hyderabad",
+    "ACP Cladding Hyderabad",
+    "Digital Signage Solutions Hyderabad",
+    "3D Letter Signage Hyderabad",
     "corporate branding signage",
-    "restaurant signage",
-    "retail store signage",
-    "real estate signage",
-    "ACP cladding services"
+    "restaurant signage Hyderabad",
+    "real estate signage Hyderabad",
   ],
   authors: [{ name: "Anirudh Brand Creation" }],
   creator: "Anirudh Brand Creation",
@@ -33,8 +35,8 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://anirudhbrandcreation.com",
     siteName: "Anirudh Brand Creation",
-    title: "Premium Signage & Branding in Hyderabad",
-    description: "Expert signage and branding solutions for corporate, healthcare, retail, and real estate sectors.",
+    title: "LED Sign Board Manufacturers in Hyderabad | Anirudh Brand Creation",
+    description: "Premium signage and branding solutions for hospitals, corporate offices, restaurants, retail, and real estate. 500+ projects. 150+ clients.",
   },
 };
 
@@ -42,33 +44,58 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "LocalBusiness",
+      "@id": "https://anirudhbrandcreation.com/#localbusiness",
+      "name": "Anirudh Brand Creation",
+      "image": "https://anirudhbrandcreation.com/images/anirudh-logo.png",
+      "telephone": "+91-9999999999",
+      "email": "projects@anirudhbrand.com",
+      "url": "https://anirudhbrandcreation.com",
+      "description": "Leading LED Sign Board Manufacturers in Hyderabad specializing in Hospital Signage, Reception Signage, Wayfinding Signage, Pylon Sign Boards, and ACP Cladding.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jubilee Hills, Road No. 36",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "postalCode": "500033",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 17.43,
+        "longitude": 78.40
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "19:00"
+      },
+      "priceRange": "₹₹₹",
+      "sameAs": [],
+      "areaServed": {
+        "@type": "City",
+        "name": "Hyderabad"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Signage Solutions",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "LED Sign Boards" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hospital Signage" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reception Signage" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wayfinding Signage" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pylon Sign Boards" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ACP Cladding" } }
+        ]
+      }
+    },
+    {
       "@type": "Organization",
       "@id": "https://anirudhbrandcreation.com/#organization",
       "name": "Anirudh Brand Creation",
       "url": "https://anirudhbrandcreation.com",
-      "logo": "https://anirudhbrandcreation.com/logo.png",
-      "description": "Top-tier LED sign board manufacturers and branding experts in Hyderabad.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "Contact via Website",
-        "contactType": "Customer Service"
-      }
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://anirudhbrandcreation.com/#localbusiness",
-      "name": "Anirudh Brand Creation",
-      "image": "https://anirudhbrandcreation.com/logo.png",
-      "telephone": "Contact via Website",
-      "url": "https://anirudhbrandcreation.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Hyderabad",
-        "addressLocality": "Hyderabad",
-        "addressRegion": "Telangana",
-        "postalCode": "500001",
-        "addressCountry": "IN"
-      }
+      "logo": "https://anirudhbrandcreation.com/images/anirudh-logo.png"
     }
   ]
 };
@@ -87,13 +114,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} font-body-md bg-surface text-primary selection:bg-secondary-container selection:text-white min-h-screen flex flex-col`}>
+      <body className={`${inter.variable} font-sans bg-white text-black min-h-screen flex flex-col antialiased`}>
         <Navbar />
-        <main className="flex-1 pt-[72px]">
+        <main className="flex-1 pt-[72px] pb-[56px] md:pb-0">
           {children}
         </main>
         <Footer />
         <MobileStickyCTA />
+        <FloatingButtons />
       </body>
     </html>
   );

@@ -1,68 +1,78 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-surface-container-lowest border-t border-outline-variant">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 px-6 md:px-20 py-[120px] max-w-[1440px] mx-auto">
+    <footer className="bg-black text-white border-t border-gray-800">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 px-6 md:px-20 py-16 max-w-[1440px] mx-auto">
         <div className="md:col-span-1">
-          <div className="h-12 mb-6">
-            <img 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKypJLaU2tyUYVBmlA96KZDRpDzNhh3qBQ_XIPgvEbL2ym3HA13gwjrz6jJ4goJjtMr8-izjDaoo7i-BYkKaU1ivyQeMTA4yf19yurz_BjNpPWwNBY6tPexGpU6wLPNCODukDxOIjKEXVNo525Hkks-iHaSaVhWzLA4V9GIuG5ImYBiQ1-5vZa9rdm8QT8PRPSG1t7yhEC3V3O6PqICMvP1lOYpnEVFjTXxTob3LLI2XMlhj6TNAoMrr5uMgdH8U_SmR6GLgVDca-z" 
-              alt="Anirudh Brand Creation Logo" 
-              className="h-full w-auto object-contain"
+          <div className="h-10 mb-4">
+            <Image
+              src="/images/anirudh-logo.png"
+              alt="Anirudh Brand Creation Logo"
+              width={140}
+              height={40}
+              className="h-full w-auto object-contain brightness-0 invert"
             />
           </div>
-          <p className="font-body-md text-body-md text-on-surface-variant mb-6">
-            Delivering architectural signage excellence in Hyderabad for over a decade.
+          <p className="text-sm text-gray-400 mb-4 leading-relaxed">
+            Leading LED Sign Board Manufacturers in Hyderabad. Delivering premium signage and branding solutions for over a decade.
           </p>
-          <div className="flex gap-4">
-            <Link href="/" className="w-10 h-10 rounded border border-outline-variant flex items-center justify-center hover:bg-secondary-container hover:text-white transition-all text-on-surface-variant">
-              <span className="material-symbols-outlined text-sm">public</span>
-            </Link>
-            <a href="mailto:projects@anirudhbrand.com" className="w-10 h-10 rounded border border-outline-variant flex items-center justify-center hover:bg-secondary-container hover:text-white transition-all text-on-surface-variant">
+          <div className="flex gap-3">
+            <a href="tel:+919999999999" className="w-9 h-9 bg-gray-800 flex items-center justify-center hover:bg-[#fe6b00] transition-colors" aria-label="Call">
+              <span className="material-symbols-outlined text-sm">call</span>
+            </a>
+            <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-gray-800 flex items-center justify-center hover:bg-[#25D366] transition-colors" aria-label="WhatsApp">
+              <span className="material-symbols-outlined text-sm">chat</span>
+            </a>
+            <a href="mailto:projects@anirudhbrand.com" className="w-9 h-9 bg-gray-800 flex items-center justify-center hover:bg-[#fe6b00] transition-colors" aria-label="Email">
               <span className="material-symbols-outlined text-sm">mail</span>
             </a>
           </div>
         </div>
 
         <div>
-          <h4 className="font-label-md text-label-md uppercase mb-8 text-primary">Solutions</h4>
-          <ul className="space-y-4 font-body-md text-body-md text-on-surface-variant">
-            <li><Link href="/services" className="hover:text-secondary-container transition-colors">Strategic Branding</Link></li>
-            <li><Link href="/industries" className="hover:text-secondary-container transition-colors">Hospitality Signage</Link></li>
-            <li><Link href="/industries" className="hover:text-secondary-container transition-colors">IT Parks</Link></li>
-            <li><Link href="/services#process" className="hover:text-secondary-container transition-colors">Manufacturing Process</Link></li>
+          <h4 className="text-xs uppercase tracking-[0.2em] text-[#fe6b00] font-semibold mb-5">Solutions</h4>
+          <ul className="space-y-3 text-sm text-gray-400">
+            <li><Link href="/services" className="hover:text-white transition-colors">LED Sign Boards</Link></li>
+            <li><Link href="/services" className="hover:text-white transition-colors">Hospital Signage</Link></li>
+            <li><Link href="/services" className="hover:text-white transition-colors">Reception Signage</Link></li>
+            <li><Link href="/services" className="hover:text-white transition-colors">Wayfinding Signage</Link></li>
+            <li><Link href="/services" className="hover:text-white transition-colors">Pylon Sign Boards</Link></li>
+            <li><Link href="/services" className="hover:text-white transition-colors">ACP Cladding</Link></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-label-md text-label-md uppercase mb-8 text-primary">Company</h4>
-          <ul className="space-y-4 font-body-md text-body-md text-on-surface-variant">
-            <li><Link href="/about" className="hover:text-secondary-container transition-colors">About Enterprise</Link></li>
-            <li><Link href="/projects" className="hover:text-secondary-container transition-colors">Client Portfolio</Link></li>
-            <li><Link href="/contact" className="hover:text-secondary-container transition-colors">Contact Enterprise</Link></li>
-            <li><Link href="/privacy-policy" className="hover:text-secondary-container transition-colors">Privacy Policy</Link></li>
+          <h4 className="text-xs uppercase tracking-[0.2em] text-[#fe6b00] font-semibold mb-5">Company</h4>
+          <ul className="space-y-3 text-sm text-gray-400">
+            <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+            <li><Link href="/projects" className="hover:text-white transition-colors">Our Projects</Link></li>
+            <li><Link href="/industries" className="hover:text-white transition-colors">Industries</Link></li>
+            <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-label-md text-label-md uppercase mb-8 text-primary">Contact</h4>
-          <p className="font-body-md text-body-md text-on-surface-variant mb-4">
+          <h4 className="text-xs uppercase tracking-[0.2em] text-[#fe6b00] font-semibold mb-5">Contact</h4>
+          <p className="text-sm text-gray-400 mb-3">
             Jubilee Hills, Road No. 36<br />
-            Hyderabad, TS - 500033
+            Hyderabad, TS – 500033
           </p>
-          <p className="font-body-md text-body-md text-on-surface-variant">
-            <Link href="/contact" className="hover:text-secondary-container transition-colors">T: Contact Us for Sales</Link><br />
-            E: projects@anirudhbrand.com
+          <p className="text-sm text-gray-400 mb-1">
+            <a href="tel:+919999999999" className="hover:text-[#fe6b00] transition-colors">T: +91 99999 99999</a>
+          </p>
+          <p className="text-sm text-gray-400">
+            <a href="mailto:projects@anirudhbrand.com" className="hover:text-[#fe6b00] transition-colors">E: projects@anirudhbrand.com</a>
           </p>
         </div>
       </div>
 
-      <div className="border-t border-outline-variant py-8 text-center px-6">
-        <p className="font-label-sm text-label-sm text-on-surface-variant opacity-80">
-          © {currentYear} Anirudh Brand Creation. Architectural Precision in Signage.
+      <div className="border-t border-gray-800 py-5 text-center px-6">
+        <p className="text-xs text-gray-500">
+          © {currentYear} Anirudh Brand Creation. LED Sign Board Manufacturers in Hyderabad. All Rights Reserved.
         </p>
       </div>
     </footer>

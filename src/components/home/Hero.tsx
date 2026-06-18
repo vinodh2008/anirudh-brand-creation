@@ -1,189 +1,202 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+const slides = [
+  {
+    image: "/images/nagarjuna-brand-creation.jpeg",
+    alt: "Nagarjuna Cement rooftop pylon sign board by Anirudh Brand Creation – LED Sign Board Manufacturers in Hyderabad",
+    client: "Nagarjuna Cement",
+    category: "Pylon Sign Board",
+  },
+  {
+    image: "/images/aig-hospitals.jpeg",
+    alt: "AIG Hospitals wayfinding signage system – Hospital Signage Board Manufacturers in Hyderabad",
+    client: "AIG Hospitals",
+    category: "Hospital Wayfinding",
+  },
+  {
+    image: "/images/smartworks-corporate.jpeg",
+    alt: "Smartworks LED reception branding – Reception Signage Manufacturers Hyderabad",
+    client: "Smartworks",
+    category: "Reception Signage",
+  },
+  {
+    image: "/images/sattva-real-estate.jpeg",
+    alt: "Salarpuria Sattva LED building signage – LED Sign Board Manufacturers Hyderabad",
+    client: "Salarpuria Sattva",
+    category: "LED Building Signage",
+  },
+  {
+    image: "/images/durandhar-signage.jpeg",
+    alt: "Duradoor LED facade signage – Sign Board Manufacturers in Hyderabad",
+    client: "Duradoor",
+    category: "LED Facade Signage",
+  },
+  {
+    image: "/images/care-hospitals-signage.jpeg",
+    alt: "Care Hospitals 3D metal reception signage – Hospital Signage Hyderabad",
+    client: "Care Hospitals",
+    category: "Hospital Branding",
+  },
+];
+
+const stats = [
+  { value: 500, suffix: "+", label: "Projects Completed" },
+  { value: 150, suffix: "+", label: "Corporate Clients" },
+  { value: 10, suffix: "+", label: "Years Experience" },
+  { value: 5, suffix: "+", label: "Cities Served" },
+];
+
+function Counter({ value, suffix }: { value: number; suffix: string }) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    let start = 0;
+    const duration = 2000;
+    const step = Math.ceil(value / (duration / 16));
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= value) { setCount(value); clearInterval(timer); }
+      else setCount(start);
+    }, 16);
+    return () => clearInterval(timer);
+  }, [value]);
+  return <>{count}{suffix}</>;
+}
+
 export function Hero() {
-  const [formData, setFormData] = useState({ name: "", phone: "", requirement: "", location: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const goTo = useCallback((index: number) => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrent(index);
+    setTimeout(() => setIsAnimating(false), 600);
+  }, [isAnimating]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.phone) return;
-    setIsSubmitting(true);
-    // Simulate API call — replace with real endpoint
-    await new Promise((r) => setTimeout(r, 1000));
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-    setFormData({ name: "", phone: "", requirement: "", location: "" });
-  };
+  const next = useCallback(() => goTo((current + 1) % slides.length), [current, goTo]);
+  const prev = useCallback(() => goTo((current - 1 + slides.length) % slides.length), [current, goTo]);
+
+  useEffect(() => {
+    const timer = setInterval(next, 5000);
+    return () => clearInterval(timer);
+  }, [next]);
 
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-surface">
-      {/* Background image overlay */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/group-corporate-branding.jpeg"
-          alt="LED Sign Board Manufacturers in Hyderabad - Anirudh Brand Creation corporate branding project featuring Vessella Group reception signage"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
-      </div>
+    <section className="relative h-screen min-h-[600px] overflow-hidden bg-black" aria-label="Hero">
+      {/* Slides */}
+      {slides.map((slide, i) => (
+        <div
+          key={i}
+          className={`absolute inset-0 transition-opacity duration-700 ${i === current ? "opacity-100 z-10" : "opacity-0 z-0"}`}
+        >
+          <Image
+            src={slide.image}
+            alt={slide.alt}
+            fill
+            priority={i === 0}
+            loading={i === 0 ? "eager" : "lazy"}
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+        </div>
+      ))}
 
-      <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full py-16 md:py-0">
-        {/* Left: Copy + CTA buttons */}
-        <div>
-          <span className="inline-block px-4 py-1.5 mb-6 border border-white/30 font-label-sm text-label-sm uppercase tracking-widest text-white/80 backdrop-blur-sm">
-            LED Sign Board Manufacturers in Hyderabad
+      {/* Content */}
+      <div className="relative z-20 h-full flex flex-col justify-center max-w-[1440px] mx-auto px-6 md:px-20 pb-28 md:pb-0">
+        <div className="max-w-2xl">
+          {/* Eyebrow */}
+          <span className="inline-block px-4 py-1.5 mb-6 border border-white/30 text-white/80 text-xs uppercase tracking-widest">
+            {slides[current].client} — {slides[current].category}
           </span>
-          <h1 className="text-display-md md:text-display-lg text-white mb-6 leading-tight font-display-lg">
-            Premium Signage &amp; Branding That Builds <span className="text-secondary-container">Powerful Brands.</span>
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+            We Create Signs That<br />
+            <span className="text-[#fe6b00]">Create Brands.</span>
           </h1>
-          <p className="text-body-lg text-white/80 mb-8 max-w-lg font-body-lg">
-            Hyderabad&apos;s trusted LED sign board, hospital signage, reception signage, wayfinding, pylon sign board, and ACP cladding manufacturers. 500+ projects delivered for AIG Hospitals, NMDC, Salarpuria Sattva, Smartworks &amp; more.
+
+          <p className="text-base md:text-lg text-white/80 mb-4 max-w-xl leading-relaxed">
+            Premium LED Sign Board Manufacturers in Hyderabad — specialising in Hospital Signage, Reception Signage, Wayfinding, Pylon Sign Boards &amp; ACP Cladding.
+          </p>
+          <p className="text-sm text-white/60 mb-8">
+            From design to installation — complete signage solutions delivered on time.
           </p>
 
-          {/* Trust stats */}
-          <div className="flex gap-8 mb-8">
-            <div>
-              <p className="text-headline-lg text-white font-bold">500+</p>
-              <p className="text-label-sm uppercase text-white/60 font-label-sm">Projects</p>
-            </div>
-            <div className="border-l border-white/20 pl-8">
-              <p className="text-headline-lg text-white font-bold">150+</p>
-              <p className="text-label-sm uppercase text-white/60 font-label-sm">Clients</p>
-            </div>
-            <div className="border-l border-white/20 pl-8">
-              <p className="text-headline-lg text-white font-bold">10+</p>
-              <p className="text-label-sm uppercase text-white/60 font-label-sm">Years</p>
-            </div>
-          </div>
-
-          {/* Instant CTA buttons */}
+          {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4">
             <a
               href="tel:+919999999999"
-              className="flex items-center gap-2 bg-secondary-container text-white px-6 py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-secondary transition-all duration-300"
+              className="flex items-center gap-2 bg-[#fe6b00] text-white px-7 py-4 font-semibold text-sm uppercase tracking-widest hover:bg-orange-600 transition-all duration-300 shadow-lg"
             >
-              <span className="material-symbols-outlined text-xl">call</span> Call Now
+              <span className="material-symbols-outlined text-lg">call</span>
+              Call Now
             </a>
             <a
-              href="https://wa.me/919999999999?text=Hi%2C%20I%20need%20a%20quote%20for%20signage"
+              href="https://wa.me/919999999999?text=Hi%2C%20I%20need%20a%20signage%20quote"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-[#25D366] text-white px-6 py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-[#1da851] transition-all duration-300"
+              className="flex items-center gap-2 bg-[#25D366] text-white px-7 py-4 font-semibold text-sm uppercase tracking-widest hover:bg-[#1da851] transition-all duration-300 shadow-lg"
             >
-              <span className="material-symbols-outlined text-xl">chat</span> WhatsApp
+              <span className="material-symbols-outlined text-lg">chat</span>
+              WhatsApp
             </a>
+            <Link
+              href="/projects"
+              className="flex items-center gap-2 border border-white text-white px-7 py-4 font-semibold text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300"
+            >
+              View Projects
+            </Link>
           </div>
+
+          <p className="mt-5 text-white/50 text-xs tracking-wider uppercase">
+            ⚡ Quick Response Within 15–30 Minutes
+          </p>
         </div>
+      </div>
 
-        {/* Right: Quick Inquiry Form */}
-        <div className="w-full max-w-md ml-auto">
-          <div className="bg-white/95 backdrop-blur-md p-8 rounded-lg shadow-2xl border border-outline-variant/30">
-            <h2 className="text-headline-lg-mobile font-headline-lg-mobile text-primary mb-1">Get Free Quote</h2>
-            <p className="text-label-sm text-on-surface-variant font-label-sm mb-6">Quick response within 30 minutes</p>
+      {/* Arrows */}
+      <button
+        onClick={prev}
+        aria-label="Previous slide"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-white/10 hover:bg-[#fe6b00] border border-white/20 text-white flex items-center justify-center transition-all duration-300 backdrop-blur-sm"
+      >
+        <span className="material-symbols-outlined text-xl">chevron_left</span>
+      </button>
+      <button
+        onClick={next}
+        aria-label="Next slide"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-white/10 hover:bg-[#fe6b00] border border-white/20 text-white flex items-center justify-center transition-all duration-300 backdrop-blur-sm"
+      >
+        <span className="material-symbols-outlined text-xl">chevron_right</span>
+      </button>
 
-            {submitted ? (
-              <div className="text-center py-8">
-                <span className="material-symbols-outlined text-5xl text-secondary-container mb-4">check_circle</span>
-                <p className="text-headline-lg-mobile font-headline-lg-mobile text-primary">Thank You!</p>
-                <p className="text-body-md text-on-surface-variant mt-2">We&apos;ll call you within 30 minutes.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your Name *"
-                    required
-                    className="w-full px-4 py-3 bg-surface border-b-2 border-outline-variant/50 focus:border-primary focus:outline-none transition-colors text-body-md font-body-md placeholder:text-on-surface-variant/50"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="Phone Number *"
-                    required
-                    className="w-full px-4 py-3 bg-surface border-b-2 border-outline-variant/50 focus:border-primary focus:outline-none transition-colors text-body-md font-body-md placeholder:text-on-surface-variant/50"
-                  />
-                </div>
-                <div>
-                  <select
-                    name="requirement"
-                    value={formData.requirement}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-surface border-b-2 border-outline-variant/50 focus:border-primary focus:outline-none transition-colors text-body-md font-body-md text-on-surface-variant"
-                  >
-                    <option value="">Select Requirement</option>
-                    <option value="led-sign-board">LED Sign Board</option>
-                    <option value="hospital-signage">Hospital Signage</option>
-                    <option value="reception-signage">Reception Signage</option>
-                    <option value="wayfinding">Wayfinding Signage</option>
-                    <option value="pylon-sign">Pylon Sign Board</option>
-                    <option value="acp-cladding">ACP Cladding</option>
-                    <option value="3d-letters">3D Letters</option>
-                    <option value="corporate-branding">Corporate Branding</option>
-                    <option value="restaurant-signage">Restaurant Signage</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    name="location"
-                    value={formData.location}
-                    onChange={handleChange}
-                    placeholder="Location (City / Area)"
-                    className="w-full px-4 py-3 bg-surface border-b-2 border-outline-variant/50 focus:border-primary focus:outline-none transition-colors text-body-md font-body-md placeholder:text-on-surface-variant/50"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-primary text-on-primary py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-secondary-container transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <span className="material-symbols-outlined animate-spin">progress_activity</span>
-                      Submitting...
-                    </>
-                  ) : (
-                    <>
-                      <span className="material-symbols-outlined">send</span>
-                      Get Free Quote
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
+      {/* Dot indicators */}
+      <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            aria-label={`Go to slide ${i + 1}`}
+            className={`transition-all duration-300 rounded-full ${i === current ? "w-6 h-2 bg-[#fe6b00]" : "w-2 h-2 bg-white/40 hover:bg-white/70"}`}
+          />
+        ))}
+      </div>
 
-            <div className="flex items-center justify-center gap-4 mt-4 pt-4 border-t border-outline-variant/30">
-              <a href="tel:+919999999999" className="flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant hover:text-secondary-container transition-colors">
-                <span className="material-symbols-outlined text-base">call</span> Call Us
-              </a>
-              <span className="text-outline-variant">|</span>
-              <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant hover:text-[#25D366] transition-colors">
-                <span className="material-symbols-outlined text-base">chat</span> WhatsApp
-              </a>
+      {/* Stats Bar */}
+      <div className="absolute bottom-0 left-0 right-0 z-30 bg-black/70 backdrop-blur-md border-t border-white/10 hidden md:block">
+        <div className="max-w-[1440px] mx-auto px-20 py-5 grid grid-cols-4 divide-x divide-white/10">
+          {stats.map((stat, i) => (
+            <div key={i} className="text-center px-6">
+              <p className="text-2xl font-bold text-[#fe6b00]">
+                <Counter value={stat.value} suffix={stat.suffix} />
+              </p>
+              <p className="text-white/60 text-xs uppercase tracking-widest mt-1">{stat.label}</p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
