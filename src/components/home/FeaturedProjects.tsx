@@ -1,0 +1,88 @@
+import Image from "next/image";
+import Link from "next/link";
+
+export function FeaturedProjects() {
+  const projects = [
+    {
+      title: "AIG Hospitals Wayfinding System",
+      category: "Healthcare • Gachibowli",
+      image: "/images/aig-hospitals.jpeg",
+      alt: "AIG Hospitals wayfinding signage system - Hospital Signage Board Manufacturers Hyderabad - Anirudh Brand Creation",
+    },
+    {
+      title: "Smartworks Reception Branding",
+      category: "Corporate • HITEC City",
+      image: "/images/smartworks-corporate.jpeg",
+      alt: "Smartworks LED reception signage - Reception Signage Manufacturers Hyderabad - Anirudh Brand Creation",
+    },
+    {
+      title: "Nagarjuna Cement Pylon Board",
+      category: "Industrial • Rooftop",
+      image: "/images/nagarjuna-brand-creation.jpeg",
+      alt: "Nagarjuna Cement pylon sign board - Pylon Sign Board Manufacturers Hyderabad - Anirudh Brand Creation",
+    },
+    {
+      title: "Salarpuria Sattva LED Signage",
+      category: "Real Estate • HITEC City",
+      image: "/images/sattva-real-estate.jpeg",
+      alt: "Salarpuria Sattva LED building signage - LED Sign Board Manufacturers Hyderabad - Anirudh Brand Creation",
+    },
+    {
+      title: "Care Hospitals Reception Signage",
+      category: "Healthcare • Banjara Hills",
+      image: "/images/care-hospitals-signage.jpeg",
+      alt: "Care Hospitals 3D metal reception branding - Hospital Signage Hyderabad - Anirudh Brand Creation",
+    },
+    {
+      title: "GoliSoda Franchise Signage",
+      category: "Restaurant • Retail",
+      image: "/images/golisoda-restaurant.jpeg",
+      alt: "GoliSoda LED franchise signage board - Restaurant Signage Manufacturers Hyderabad - Anirudh Brand Creation",
+    },
+  ];
+
+  return (
+    <section className="py-[100px] bg-surface-container-lowest" id="featured-work">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-20">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+          <div>
+            <span className="text-label-sm font-label-sm uppercase tracking-widest text-secondary-container mb-4 block">Featured Projects</span>
+            <h2 className="text-headline-lg-mobile md:text-headline-lg font-display-md mb-4">
+              Masterworks Across Hyderabad
+            </h2>
+            <p className="text-body-md text-on-surface-variant font-body-md max-w-xl">
+              A gallery of our finest LED sign boards, hospital signage, and corporate branding projects for Hyderabad&apos;s most iconic brands.
+            </p>
+          </div>
+          <Link
+            href="/projects"
+            className="font-label-md text-label-md uppercase tracking-wider text-secondary-container border-b border-secondary-container pb-1 hover:text-primary transition-colors shrink-0"
+          >
+            See All Work →
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <Link href="/projects" key={index} className="group bg-white apple-shadow overflow-hidden block">
+              <div className="relative aspect-video overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-5">
+                <p className="text-label-sm font-label-sm uppercase text-secondary-container mb-1">{project.category}</p>
+                <h3 className="font-headline-lg-mobile text-headline-lg-mobile text-primary">{project.title}</h3>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
