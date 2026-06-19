@@ -6,74 +6,131 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-black text-white border-t border-gray-800">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 px-6 md:px-20 py-16 max-w-[1440px] mx-auto">
-        <div className="md:col-span-1">
-          <div className="h-10 mb-4">
-            <Image
-              src="/images/anirudh-logo.png"
-              alt={`${businessInfo.name} Logo`}
-              width={140}
-              height={40}
-              className="h-full w-auto object-contain brightness-0 invert"
-            />
-          </div>
-          <p className="text-sm text-gray-400 mb-4 leading-relaxed">
-            Leading LED Sign Board Manufacturers in Secunderabad &amp; Hyderabad. Delivering premium signage and branding solutions for over a decade.
+    <footer className="bg-black text-white border-t border-gray-900">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 px-6 md:px-20 py-12 max-w-[1440px] mx-auto">
+
+        {/* Column 1: Logo & Branding */}
+        <div className="flex flex-col gap-4 md:col-span-1">
+          <Link href="/" className="group flex items-center gap-3 transition-transform duration-300 hover:scale-105" aria-label="Anirudh Brand Creation – Home">
+            <div className="h-14 lg:h-[70px] flex-shrink-0">
+              <Image
+                src="/images/anirudh-logo.png"
+                alt="Anirudh Brand Creation logo"
+                width={70}
+                height={70}
+                className="h-full w-auto object-contain brightness-0 invert transition-all duration-300"
+              />
+            </div>
+            <div className="flex flex-col justify-center">
+              <span className="text-xl md:text-2xl font-black text-white leading-none tracking-tight">ANIRUDH</span>
+              <span className="text-[10px] md:text-xs font-bold text-[#fe6b00] uppercase tracking-[0.15em] leading-tight mt-0.5">Brand Creation</span>
+            </div>
+          </Link>
+          <p className="text-sm font-semibold text-white/90 mt-1">We Create Signs That Create Brands.</p>
+          <p className="text-xs text-gray-400 leading-relaxed">
+            Leading LED Sign Board Manufacturers in Secunderabad &amp; Hyderabad. Delivering premium signage and branding solutions for hospitals, corporate offices, restaurants, and real estate projects.
           </p>
-          <div className="flex gap-3">
-            <a href={businessInfo.phoneUrl} className="w-9 h-9 bg-gray-800 flex items-center justify-center hover:bg-[#fe6b00] transition-colors" aria-label="Call">
+          <div className="flex gap-2.5 mt-2">
+            <a
+              href={businessInfo.phoneUrl}
+              className="w-8 h-8 rounded bg-gray-900 border border-gray-800 flex items-center justify-center hover:bg-[#fe6b00] hover:border-[#fe6b00] transition-all duration-300"
+              aria-label={`Call us at ${businessInfo.phone}`}
+            >
               <span className="material-symbols-outlined text-sm">call</span>
             </a>
-            <a href={businessInfo.whatsappUrl} target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-gray-800 flex items-center justify-center hover:bg-[#25D366] transition-colors" aria-label="WhatsApp">
+            <a
+              href={businessInfo.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 rounded bg-gray-900 border border-gray-800 flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-300"
+              aria-label="Chat on WhatsApp"
+            >
               <span className="material-symbols-outlined text-sm">chat</span>
             </a>
-            <a href={businessInfo.emailUrl} className="w-9 h-9 bg-gray-800 flex items-center justify-center hover:bg-[#fe6b00] transition-colors" aria-label="Email">
+            <a
+              href={businessInfo.emailUrl}
+              className="w-8 h-8 rounded bg-gray-900 border border-gray-800 flex items-center justify-center hover:bg-[#fe6b00] hover:border-[#fe6b00] transition-all duration-300"
+              aria-label={`Email us at ${businessInfo.email}`}
+            >
               <span className="material-symbols-outlined text-sm">mail</span>
             </a>
           </div>
         </div>
 
+        {/* Column 2: Quick Links */}
         <div>
-          <h4 className="text-xs uppercase tracking-[0.2em] text-[#fe6b00] font-semibold mb-5">Solutions</h4>
-          <ul className="space-y-3 text-sm text-gray-400">
-            <li><Link href="/services" className="hover:text-white transition-colors">LED Sign Boards</Link></li>
-            <li><Link href="/services" className="hover:text-white transition-colors">Hospital Signage</Link></li>
-            <li><Link href="/services" className="hover:text-white transition-colors">Reception Signage</Link></li>
-            <li><Link href="/services" className="hover:text-white transition-colors">Wayfinding Signage</Link></li>
-            <li><Link href="/services" className="hover:text-white transition-colors">Pylon Sign Boards</Link></li>
-            <li><Link href="/services" className="hover:text-white transition-colors">ACP Cladding</Link></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-xs uppercase tracking-[0.2em] text-[#fe6b00] font-semibold mb-5">Company</h4>
-          <ul className="space-y-3 text-sm text-gray-400">
+          <h4 className="text-[10px] uppercase tracking-[0.2em] text-[#fe6b00] font-semibold mb-4">Quick Links</h4>
+          <ul className="space-y-2.5 text-xs text-gray-400 font-medium">
+            <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
             <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-            <li><Link href="/projects" className="hover:text-white transition-colors">Our Projects</Link></li>
             <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
+            <li><Link href="/projects" className="hover:text-white transition-colors">Projects</Link></li>
             <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
           </ul>
         </div>
 
+        {/* Column 3: Solutions */}
         <div>
-          <h4 className="text-xs uppercase tracking-[0.2em] text-[#fe6b00] font-semibold mb-5">Contact Info</h4>
-          <p className="text-sm text-gray-400 mb-3 leading-relaxed">
-            {businessInfo.address.street},<br />
-            {businessInfo.address.area}, {businessInfo.address.city},<br />
-            {businessInfo.address.state} – {businessInfo.address.postalCode}, {businessInfo.address.country}
-          </p>
-          <p className="text-sm text-gray-400 mb-1">
-            <a href={businessInfo.phoneUrl} className="hover:text-[#fe6b00] transition-colors">T: {businessInfo.phone}</a>
-          </p>
-          <p className="text-sm text-gray-400">
-            <a href={businessInfo.emailUrl} className="hover:text-[#fe6b00] transition-colors">E: {businessInfo.email}</a>
-          </p>
+          <h4 className="text-[10px] uppercase tracking-[0.2em] text-[#fe6b00] font-semibold mb-4">Solutions</h4>
+          <ul className="space-y-2.5 text-xs text-gray-400 font-medium">
+            <li><Link href="/services/led-signage" className="hover:text-white transition-colors">LED Sign Boards</Link></li>
+            <li><Link href="/services/hospital-signage" className="hover:text-white transition-colors">Hospital Signage</Link></li>
+            <li><Link href="/services/reception-signage" className="hover:text-white transition-colors">Reception Signage</Link></li>
+            <li><Link href="/services/wayfinding-signage" className="hover:text-white transition-colors">Wayfinding Signage</Link></li>
+            <li><Link href="/services/pylon-sign-boards" className="hover:text-white transition-colors">Pylon Sign Boards</Link></li>
+            <li><Link href="/services/acp-cladding" className="hover:text-white transition-colors">ACP Cladding</Link></li>
+          </ul>
         </div>
+
+        {/* Column 4: Service Areas */}
+        <div>
+          <h4 className="text-[10px] uppercase tracking-[0.2em] text-[#fe6b00] font-semibold mb-4">Service Areas</h4>
+          <ul className="space-y-2.5 text-xs text-gray-400 font-medium">
+            <li><span className="hover:text-white transition-colors cursor-default">Hyderabad</span></li>
+            <li><span className="hover:text-white transition-colors cursor-default">Secunderabad</span></li>
+            <li><span className="hover:text-white transition-colors cursor-default">Bholakpur</span></li>
+            <li><span className="hover:text-white transition-colors cursor-default">Gachibowli</span></li>
+            <li><span className="hover:text-white transition-colors cursor-default">Hitech City</span></li>
+            <li><span className="hover:text-white transition-colors cursor-default">Jubilee Hills</span></li>
+            <li><span className="hover:text-white transition-colors cursor-default">Kukatpally</span></li>
+          </ul>
+        </div>
+
+        {/* Column 5: Contact Info */}
+        <div>
+          <h4 className="text-[10px] uppercase tracking-[0.2em] text-[#fe6b00] font-semibold mb-4">Contact Info</h4>
+          <address className="not-italic">
+            <p className="text-xs text-gray-400 mb-3 leading-relaxed">
+              <strong className="text-gray-300">Address:</strong><br />
+              {businessInfo.name},<br />
+              {businessInfo.address.street},<br />
+              {businessInfo.address.area},<br />
+              {businessInfo.address.city},<br />
+              {businessInfo.address.state} – {businessInfo.address.postalCode},<br />
+              {businessInfo.address.country}
+            </p>
+            <p className="text-xs text-gray-400 mb-2">
+              <strong className="text-gray-300">Phone:</strong>{" "}
+              <a href={businessInfo.phoneUrl} className="hover:text-[#fe6b00] transition-colors">{businessInfo.phone}</a>
+            </p>
+            <p className="text-xs text-gray-400 mb-2">
+              <strong className="text-gray-300">WhatsApp:</strong>{" "}
+              <a href={businessInfo.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#fe6b00] transition-colors">{businessInfo.whatsapp}</a>
+            </p>
+            <p className="text-xs text-gray-400 mb-2">
+              <strong className="text-gray-300">Email:</strong>{" "}
+              <a href={businessInfo.emailUrl} className="hover:text-[#fe6b00] transition-colors">{businessInfo.email}</a>
+            </p>
+            <p className="text-xs text-gray-400">
+              <strong className="text-gray-300">Hours:</strong>{" "}{businessInfo.hours}
+            </p>
+          </address>
+        </div>
+
       </div>
 
-      <div className="border-t border-gray-800 py-5 text-center px-6">
-        <p className="text-xs text-gray-500">
+      <div className="border-t border-gray-950 py-4 text-center px-6">
+        <p className="text-[10px] text-gray-500 font-medium">
           © {currentYear} {businessInfo.name}. LED Sign Board Manufacturers in Secunderabad &amp; Hyderabad. All Rights Reserved.
         </p>
       </div>

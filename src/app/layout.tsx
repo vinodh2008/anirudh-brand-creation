@@ -9,37 +9,77 @@ import { businessInfo } from "@/config/businessInfo";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
+const baseUrl = "https://anirudhbrandcreation.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: {
     default: "Anirudh Brand Creation | LED Sign Board Manufacturers in Hyderabad & Secunderabad",
     template: "%s | Anirudh Brand Creation",
   },
-  description: `${businessInfo.seoDescription} Leading manufacturers of Hospital Signage, Reception Signage, Wayfinding Signage, Pylon Sign Boards, ACP Cladding, and Digital Signage.`,
+  description: `Leading LED Sign Board Manufacturers in Hyderabad & Secunderabad. ${businessInfo.seoDescription} Specialists in Hospital Signage, Reception Signage, Wayfinding Signage, Pylon Sign Boards, ACP Cladding & Corporate Branding.`,
   keywords: [
     "LED Sign Board Manufacturers in Hyderabad",
     "Sign Board Manufacturers in Hyderabad",
     "LED Sign Board Manufacturers in Secunderabad",
     "Sign Board Manufacturers in Secunderabad",
     "Hospital Signage Board Manufacturers in Hyderabad",
-    "Reception Signage Board Manufacturers",
+    "Reception Signage Hyderabad",
     "Wayfinding Signage Hyderabad",
     "Pylon Sign Boards Hyderabad",
     "ACP Cladding Hyderabad",
+    "Corporate Branding Signage",
+    "Restaurant Signage Hyderabad",
     "Digital Signage Solutions Hyderabad",
     "3D Letter Signage Hyderabad",
-    "corporate branding signage",
-    "restaurant signage Hyderabad",
     "real estate signage Hyderabad",
+    "Anirudh Brand Creation",
   ],
-  authors: [{ name: "Anirudh Brand Creation" }],
+  authors: [{ name: "Anirudh Brand Creation", url: baseUrl }],
   creator: "Anirudh Brand Creation",
+  publisher: "Anirudh Brand Creation",
+  alternates: {
+    canonical: baseUrl,
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://anirudhbrandcreation.com",
+    url: baseUrl,
     siteName: "Anirudh Brand Creation",
     title: "LED Sign Board Manufacturers in Hyderabad & Secunderabad | Anirudh Brand Creation",
-    description: "Premium signage and branding solutions for hospitals, corporate offices, restaurants, retail, and real estate projects across Secunderabad and Hyderabad. 500+ projects.",
+    description:
+      "Premium signage and branding solutions for hospitals, corporate offices, restaurants, retail, and real estate projects across Secunderabad and Hyderabad. 500+ projects completed.",
+    images: [
+      {
+        url: `${baseUrl}/images/anirudh-logo.png`,
+        width: 1200,
+        height: 630,
+        alt: "Anirudh Brand Creation – LED Sign Board Manufacturers in Hyderabad",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LED Sign Board Manufacturers in Hyderabad | Anirudh Brand Creation",
+    description:
+      "Premium signage solutions for hospitals, corporates, restaurants & real estate. 500+ projects. Call: +91 9133721319",
+    images: [`${baseUrl}/images/anirudh-logo.png`],
+  },
+  icons: {
+    icon: "/images/anirudh-logo.png",
+    shortcut: "/images/anirudh-logo.png",
+    apple: "/images/anirudh-logo.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -48,12 +88,12 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "LocalBusiness",
-      "@id": "https://anirudhbrandcreation.com/#localbusiness",
-      "name": "Anirudh Brand Creation",
-      "image": "https://anirudhbrandcreation.com/images/anirudh-logo.png",
-      "telephone": businessInfo.phone,
+      "@id": `${baseUrl}/#localbusiness`,
+      "name": businessInfo.name,
+      "image": `${baseUrl}/images/anirudh-logo.png`,
+      "telephone": "+91 9133721319",
       "email": businessInfo.email,
-      "url": "https://anirudhbrandcreation.com",
+      "url": baseUrl,
       "description": businessInfo.seoDescription,
       "address": {
         "@type": "PostalAddress",
@@ -61,30 +101,27 @@ const jsonLd = {
         "addressLocality": businessInfo.address.city,
         "addressRegion": businessInfo.address.state,
         "postalCode": businessInfo.address.postalCode,
-        "addressCountry": "IN"
+        "addressCountry": "IN",
       },
       "geo": {
         "@type": "GeoCoordinates",
         "latitude": 17.4262,
-        "longitude": 78.4908
+        "longitude": 78.4908,
       },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         "opens": "09:00",
-        "closes": "19:00"
+        "closes": "19:00",
       },
       "priceRange": "₹₹₹",
       "sameAs": [],
       "areaServed": [
-        {
-          "@type": "City",
-          "name": "Hyderabad"
-        },
-        {
-          "@type": "City",
-          "name": "Secunderabad"
-        }
+        { "@type": "City", "name": "Hyderabad" },
+        { "@type": "City", "name": "Secunderabad" },
+        { "@type": "City", "name": "Bholakpur" },
+        { "@type": "City", "name": "Gachibowli" },
+        { "@type": "City", "name": "Hitech City" },
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -95,18 +132,48 @@ const jsonLd = {
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reception Signage" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wayfinding Signage" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pylon Sign Boards" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ACP Cladding" } }
-        ]
-      }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ACP Cladding" } },
+        ],
+      },
     },
     {
       "@type": "Organization",
-      "@id": "https://anirudhbrandcreation.com/#organization",
-      "name": "Anirudh Brand Creation",
-      "url": "https://anirudhbrandcreation.com",
-      "logo": "https://anirudhbrandcreation.com/images/anirudh-logo.png"
-    }
-  ]
+      "@id": `${baseUrl}/#organization`,
+      "name": businessInfo.name,
+      "url": baseUrl,
+      "logo": `${baseUrl}/images/anirudh-logo.png`,
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91 9133721319",
+        "contactType": "customer service",
+        "areaServed": "IN",
+        "availableLanguage": ["English", "Hindi", "Telugu"],
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": baseUrl,
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": `${baseUrl}/services`,
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Projects",
+          "item": `${baseUrl}/projects`,
+        },
+      ],
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -117,7 +184,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

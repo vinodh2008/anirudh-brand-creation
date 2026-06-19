@@ -1,39 +1,49 @@
+"use client";
+
+import Image from "next/image";
+
 export function ClientLogos() {
-  const logos = [
-    { name: "AIG Hospitals", image: "/images/aig-hospitals.jpeg" },
-    { name: "Care Hospitals", image: "/images/care-hospitals-signage.jpeg" },
-    { name: "NMDC", image: "/images/nmdc-corporate-signage.jpeg" },
-    { name: "Salarpuria Sattva", image: "/images/sattva-real-estate.jpeg" },
-    { name: "Smartworks", image: "/images/smartworks-corporate.jpeg" },
-    { name: "Duradoor", image: "/images/durandhar-signage.jpeg" },
-    { name: "Nagarjuna Cement", image: "/images/nagarjuna-brand-creation.jpeg" },
-    { name: "GoliSoda", image: "/images/golisoda-restaurant.jpeg" },
-    { name: "Vessella Group", image: "/images/group-corporate-branding.jpeg" },
-    { name: "Orion Farms", image: "/images/farms-signage.jpeg" },
-    { name: "TechHub", image: "/images/techhub-corporate.jpeg" },
-    { name: "Zafrani Tea", image: "/images/zafani-tea-signage.jpeg" },
+  const clients = [
+    { name: "AIG Hospitals", logo: "/images/aig-hospitals.jpeg" },
+    { name: "Apollo Hospitals", logo: "/images/care-hospitals-signage.jpeg" },
+    { name: "NMDC Ltd", logo: "/images/nmdc-corporate-signage.jpeg" },
+    { name: "Salarpuria Sattva", logo: "/images/sattva-real-estate.jpeg" },
+    { name: "Smartworks", logo: "/images/smartworks-corporate.jpeg" },
+    { name: "Care Hospitals", logo: "/images/care-hospitals-signage.jpeg" },
+    { name: "Duradoor", logo: "/images/durandhar-signage.jpeg" },
+    { name: "Nagarjuna Cement", logo: "/images/nagarjuna-brand-creation.jpeg" },
   ];
 
   return (
-    <section className="py-8 bg-white border-y border-gray-100 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-20">
-        <p className="text-center text-xs uppercase tracking-[0.2em] text-gray-400 font-semibold mb-6">
-          Trusted by 150+ Brands Across Hyderabad
-        </p>
+    <section className="py-12 bg-white border-y border-gray-100 overflow-hidden" aria-label="Our trusted clients">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-20 mb-8">
+        <div className="flex items-center justify-center gap-4">
+          <div className="h-px bg-orange-200 flex-1 max-w-[100px]" />
+          <p className="text-center text-xs uppercase tracking-[0.2em] text-gray-800 font-bold">
+            TRUSTED BY LEADING BRANDS
+          </p>
+          <div className="h-px bg-orange-200 flex-1 max-w-[100px]" />
+        </div>
       </div>
       <div className="relative overflow-hidden">
-        <div className="flex logo-scroll whitespace-nowrap gap-0">
-          {[...logos, ...logos].map((logo, i) => (
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+        <div className="flex logo-scroll whitespace-nowrap gap-12 logo-scroll-paused-on-hover items-center">
+          {[...clients, ...clients].map((client, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-[140px] h-[70px] mx-4 rounded-md overflow-hidden bg-gray-50 border border-gray-100 flex items-center justify-center group"
+              className="flex-shrink-0 w-[180px] h-[80px] flex items-center justify-center group"
             >
-              <img
-                src={logo.image}
-                alt={`${logo.name} signage project by Anirudh Brand Creation Hyderabad`}
-                className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0"
-                loading="lazy"
-              />
+              <div className="relative w-full h-full opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">
+                <Image
+                  src={client.logo}
+                  alt={`${client.name} - Anirudh Brand Creation Client`}
+                  fill
+                  sizes="180px"
+                  className="object-contain"
+                />
+              </div>
             </div>
           ))}
         </div>

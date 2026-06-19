@@ -25,6 +25,20 @@ const testimonials = [
     name: "Director (Projects)",
     designation: "NMDC Ltd, Hyderabad",
   },
+  {
+    logo: "/images/care-hospitals-signage.jpeg",
+    companyName: "Apollo Hospitals",
+    text: "Anirudh Brand Creation provided phenomenal emergency and department signage for our new wing. The materials are durable, and the visibility is exactly what a premium healthcare facility needs.",
+    name: "Operations Head",
+    designation: "Apollo Hospitals",
+  },
+  {
+    logo: "/images/smartworks-corporate.jpeg",
+    companyName: "Smartworks",
+    text: "As a premium co-working space, our brand image is everything. They executed our complex reception 3D lettering and frosted glass graphics perfectly and within our tight launch timeline.",
+    name: "Facility Manager",
+    designation: "Smartworks, HITEC City",
+  },
 ];
 
 export function Testimonials() {
@@ -69,8 +83,9 @@ export function Testimonials() {
                   <div className="relative w-12 h-12 rounded-full overflow-hidden border border-gray-200 flex-shrink-0 bg-gray-50">
                     <Image
                       src={t.logo}
-                      alt={`${t.companyName} logo`}
+                      alt={`${t.companyName} – verified signage client of Anirudh Brand Creation`}
                       fill
+                      sizes="48px"
                       className="object-cover grayscale"
                     />
                   </div>
@@ -112,8 +127,9 @@ export function Testimonials() {
                     <div className="relative w-10 h-10 rounded-full overflow-hidden border border-gray-200 flex-shrink-0 bg-gray-50">
                       <Image
                         src={t.logo}
-                        alt={`${t.companyName} logo`}
+                        alt={`${t.companyName} – verified signage client of Anirudh Brand Creation`}
                         fill
+                        sizes="40px"
                         className="object-cover grayscale"
                       />
                     </div>

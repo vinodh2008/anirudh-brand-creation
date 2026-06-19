@@ -87,7 +87,7 @@ export function Hero() {
   }, [next]);
 
   return (
-    <section className="relative h-screen min-h-[600px] overflow-hidden bg-black" aria-label="Hero">
+    <section className="relative h-screen min-h-[600px] overflow-hidden bg-black pt-[96px]" aria-label="Hero">
       {/* Slides */}
       {slides.map((slide, i) => (
         <div
@@ -103,7 +103,7 @@ export function Hero() {
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
         </div>
       ))}
 
@@ -157,6 +157,17 @@ export function Hero() {
             ⚡ Quick Response Within 15–30 Minutes
           </p>
         </div>
+      </div>
+
+      {/* Subtle Brand Watermark */}
+      <div className="absolute right-[-10%] bottom-[-10%] opacity-[0.03] pointer-events-none z-10 hidden lg:block">
+        <Image
+          src="/images/anirudh-logo.png"
+          alt=""
+          width={800}
+          height={800}
+          className="object-contain"
+        />
       </div>
 
       {/* Arrows */}

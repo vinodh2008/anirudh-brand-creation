@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { businessInfo } from "@/config/businessInfo";
 
 const serviceBlocks = [
   {
@@ -7,7 +8,8 @@ const serviceBlocks = [
     seoTitle: "LED Sign Board Manufacturers in Hyderabad",
     desc: "Anirudh Brand Creation designs and manufactures high-impact, premium LED sign boards for commercial spaces, retail storefronts, and corporate offices. Using Samsung LED technology combined with high-grade acrylics and durable profiles, we ensure energy-efficiency, extreme longevity, and brilliant uniform brightness that commands attention day and night.",
     image: "/images/sattva-real-estate.jpeg",
-    alt: "LED Sign Board Manufacturers in Hyderabad - Salarpuria Sattva building LED facade signage by Anirudh Brand Creation",
+    alt: "LED Sign Board Manufacturers in Hyderabad – Salarpuria Sattva building LED facade signage by Anirudh Brand Creation",
+    slug: "/services/led-signage",
     reverse: false,
   },
   {
@@ -15,7 +17,8 @@ const serviceBlocks = [
     seoTitle: "Architectural & Pylon Sign Board Manufacturers",
     desc: "Make an architectural statement. Our customized pylon signs, ACP cladding, metal lettering, and monumental signage are engineered for maximum structural strength and wind-load stability. Perfect for corporate headquarters, IT Parks, and large-scale industrial properties looking to project a premium, enduring brand presence.",
     image: "/images/nagarjuna-brand-creation.jpeg",
-    alt: "Pylon Sign Board Manufacturers in Hyderabad - Nagarjuna Cement landmark architectural signage by Anirudh Brand Creation",
+    alt: "Pylon Sign Board Manufacturers in Hyderabad – Nagarjuna Cement landmark architectural signage by Anirudh Brand Creation",
+    slug: "/services/architectural-signs",
     reverse: true,
   },
   {
@@ -23,7 +26,8 @@ const serviceBlocks = [
     seoTitle: "Corporate Wall & Glass Graphics Hyderabad",
     desc: "Enhance your interior brand spaces with custom wall murals, privacy frosted glass films, and directional signage. We design and install high-definition vinyl prints, textured graphics, and custom glass manifestations that enrich office interiors, hospital wards, and meeting rooms with a sophisticated corporate aesthetic.",
     image: "/images/speed-signage.jpeg",
-    alt: "Corporate Wall and Glass Graphics - Boardroom glass vinyl and wall graphics by Anirudh Brand Creation Hyderabad",
+    alt: "Corporate Wall and Glass Graphics – Boardroom glass vinyl and wall graphics by Anirudh Brand Creation Hyderabad",
+    slug: "/services/wall-glass-graphics",
     reverse: false,
   },
   {
@@ -31,7 +35,8 @@ const serviceBlocks = [
     seoTitle: "Wayfinding Signage Hyderabad",
     desc: "Create seamless journeys for your visitors. We design intuitive, modular wayfinding directory systems that simplify navigation within complex environments like hospitals, colleges, hotels, and IT corridors. Fully compliant with international standards, featuring clear typography and high-contrast styling.",
     image: "/images/office-directory-signage.jpeg",
-    alt: "Wayfinding Signage Hyderabad - Office directory and floor navigation board by Anirudh Brand Creation",
+    alt: "Wayfinding Signage Hyderabad – Office directory and floor navigation board by Anirudh Brand Creation",
+    slug: "/services/wayfinding-signage",
     reverse: true,
   },
 ];
@@ -76,16 +81,17 @@ export function ServicesDetail() {
                 <p className="text-base text-gray-600 leading-relaxed mb-6">{block.desc}</p>
                 <div className="flex flex-wrap gap-3">
                   <Link
-                    href="/contact"
+                    href={block.slug}
                     className="inline-flex items-center gap-2 bg-black text-white px-6 py-3 text-xs font-semibold uppercase tracking-wider hover:bg-[#fe6b00] transition-colors duration-300"
                   >
                     Know More
                   </Link>
                   <a
-                    href={`https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20inquire%20about%20${encodeURIComponent(block.title)}`}
+                    href={`https://wa.me/919133721319?text=Hi%20Anirudh%20Brand%20Creation,%20I%20want%20to%20inquire%20about%20${encodeURIComponent(block.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 border border-gray-200 text-gray-700 px-6 py-3 text-xs font-semibold uppercase tracking-wider hover:border-[#25D366] hover:text-[#25D366] transition-colors duration-300"
+                    aria-label={`WhatsApp us about ${block.title}`}
                   >
                     <span className="material-symbols-outlined text-base">chat</span>
                     WhatsApp

@@ -8,65 +8,73 @@ export function ServicesGrid() {
       title: "LED Sign Boards",
       desc: "High-efficiency Samsung LED sign boards with long-lasting illumination for corporate buildings, malls, and commercial facades.",
       image: "/images/sattva-real-estate.jpeg",
-      alt: "LED Sign Board Manufacturers in Hyderabad - Salarpuria Sattva illuminated building signage by Anirudh Brand Creation",
-      seoKeyword: "LED Sign Board Manufacturers in Hyderabad"
+      alt: "LED Sign Board Manufacturers in Hyderabad – Salarpuria Sattva illuminated building signage by Anirudh Brand Creation",
+      seoKeyword: "LED Sign Board Manufacturers in Hyderabad",
+      slug: "/services/led-signage",
     },
     {
       icon: "emergency",
       title: "Hospital Signage",
       desc: "Comprehensive hospital signage board solutions including wayfinding, department directories, and emergency signs for healthcare facilities.",
       image: "/images/aig-hospitals.jpeg",
-      alt: "Hospital Signage Board Manufacturers - AIG Hospitals wayfinding signage system manufactured by Anirudh Brand Creation Hyderabad",
-      seoKeyword: "Hospital Signage Board Manufacturers"
+      alt: "Hospital Signage Board Manufacturers – AIG Hospitals wayfinding signage system manufactured by Anirudh Brand Creation Hyderabad",
+      seoKeyword: "Hospital Signage Board Manufacturers",
+      slug: "/services/hospital-signage",
     },
     {
       icon: "badge",
       title: "Reception Signage",
       desc: "Premium 3D acrylic and metal reception signage that creates powerful first impressions for corporate lobbies and offices.",
       image: "/images/care-hospitals-signage.jpeg",
-      alt: "Reception Signage Manufacturers Hyderabad - Care Hospitals premium 3D metal reception branding by Anirudh Brand Creation",
-      seoKeyword: "Reception Signage"
+      alt: "Reception Signage Manufacturers Hyderabad – Care Hospitals premium 3D metal reception branding by Anirudh Brand Creation",
+      seoKeyword: "Reception Signage",
+      slug: "/services/reception-signage",
     },
     {
       icon: "directions",
       title: "Wayfinding Signage",
       desc: "Intuitive wayfinding signage systems with bilingual support designed for hospitals, IT parks, malls, and educational institutions.",
       image: "/images/office-directory-signage.jpeg",
-      alt: "Wayfinding Signage Manufacturers - Office directory wayfinding board system by Anirudh Brand Creation Hyderabad",
-      seoKeyword: "Wayfinding Signage"
+      alt: "Wayfinding Signage Manufacturers – Office directory wayfinding board system by Anirudh Brand Creation Hyderabad",
+      seoKeyword: "Wayfinding Signage",
+      slug: "/services/wayfinding-signage",
     },
     {
       icon: "flag",
       title: "Pylon Sign Boards",
       desc: "Large-scale rooftop and pylon sign boards with structural steel framing for maximum brand visibility from long distances.",
       image: "/images/nagarjuna-brand-creation.jpeg",
-      alt: "Pylon Sign Board Manufacturers Hyderabad - Nagarjuna Cement rooftop pylon signage installation by Anirudh Brand Creation",
-      seoKeyword: "Pylon Sign Boards"
+      alt: "Pylon Sign Board Manufacturers Hyderabad – Nagarjuna Cement rooftop pylon signage installation by Anirudh Brand Creation",
+      seoKeyword: "Pylon Sign Boards",
+      slug: "/services/pylon-sign-boards",
     },
     {
       icon: "apartment",
       title: "ACP Cladding",
       desc: "Durable ACP cladding solutions for building facades combining architectural aesthetics with weather-resistant performance.",
       image: "/images/techhub-corporate.jpeg",
-      alt: "ACP Cladding Manufacturers Hyderabad - TechHub building facade with ACP cladding and corporate signage by Anirudh Brand Creation",
-      seoKeyword: "ACP Cladding"
+      alt: "ACP Cladding Manufacturers Hyderabad – TechHub building facade with ACP cladding and corporate signage by Anirudh Brand Creation",
+      seoKeyword: "ACP Cladding",
+      slug: "/services/acp-cladding",
     },
     {
       icon: "abc",
       title: "3D Letters & Signage",
       desc: "Custom-crafted 3D acrylic and metal letters with LED backlighting for premium brand displays and storefront signage.",
       image: "/images/speed-signage.jpeg",
-      alt: "3D Letter Signage Hyderabad - Scale at Speed premium 3D acrylic letter boardroom branding by Anirudh Brand Creation",
-      seoKeyword: "3D Letter Signage"
+      alt: "3D Letter Signage Hyderabad – Scale at Speed premium 3D acrylic letter boardroom branding by Anirudh Brand Creation",
+      seoKeyword: "3D Letter Signage",
+      slug: "/services/wall-glass-graphics",
     },
     {
       icon: "storefront",
       title: "Restaurant & Retail Signage",
       desc: "Eye-catching LED and acrylic signage for restaurants, retail stores, and food chains that drive foot traffic and brand recall.",
       image: "/images/golisoda-restaurant.jpeg",
-      alt: "Restaurant Signage Manufacturers Hyderabad - GoliSoda retail LED signage board by Anirudh Brand Creation",
-      seoKeyword: "Restaurant Signage"
-    }
+      alt: "Restaurant Signage Manufacturers Hyderabad – GoliSoda retail LED signage board by Anirudh Brand Creation",
+      seoKeyword: "Restaurant Signage",
+      slug: "/services/led-signage",
+    },
   ];
 
   return (
@@ -84,7 +92,11 @@ export function ServicesGrid() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <div key={index} className="group bg-white border border-outline-variant/30 overflow-hidden hover:border-secondary-container transition-all duration-300 hover:shadow-lg">
+            <Link
+              href={service.slug}
+              key={index}
+              className="group bg-white border border-outline-variant/30 overflow-hidden hover:border-secondary-container transition-all duration-300 hover:shadow-lg block"
+            >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={service.image}
@@ -101,9 +113,12 @@ export function ServicesGrid() {
                   <span className="material-symbols-outlined text-2xl text-secondary-container">{service.icon}</span>
                   <h3 className="font-label-md text-label-md uppercase">{service.title}</h3>
                 </div>
-                <p className="text-label-sm font-label-sm text-on-surface-variant leading-relaxed">{service.desc}</p>
+                <p className="text-label-sm font-label-sm text-on-surface-variant leading-relaxed mb-3">{service.desc}</p>
+                <span className="text-xs font-semibold text-secondary-container uppercase tracking-wider group-hover:underline">
+                  Know More →
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
