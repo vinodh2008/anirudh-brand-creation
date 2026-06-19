@@ -160,12 +160,13 @@ export function Hero() {
       </div>
 
       {/* Subtle Brand Watermark */}
-      <div className="absolute right-[-10%] bottom-[-10%] opacity-[0.03] pointer-events-none z-10 hidden lg:block">
+      <div className="absolute right-[-10%] bottom-[5%] opacity-[0.03] pointer-events-none z-10 hidden lg:block">
         <Image
-          src="/images/anirudh-logo.png"
+          src="/images/anirude-logo.png"
           alt=""
           width={800}
-          height={800}
+          height={300}
+          style={{ width: '100%', height: 'auto' }}
           className="object-contain"
         />
       </div>

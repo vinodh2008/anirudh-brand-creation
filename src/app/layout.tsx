@@ -51,7 +51,7 @@ export const metadata: Metadata = {
       "Premium signage and branding solutions for hospitals, corporate offices, restaurants, retail, and real estate projects across Secunderabad and Hyderabad. 500+ projects completed.",
     images: [
       {
-        url: `${baseUrl}/images/anirudh-logo.png`,
+        url: `${baseUrl}/images/anirude-logo.png`,
         width: 1200,
         height: 630,
         alt: "Anirudh Brand Creation – LED Sign Board Manufacturers in Hyderabad",
@@ -63,12 +63,12 @@ export const metadata: Metadata = {
     title: "LED Sign Board Manufacturers in Hyderabad | Anirudh Brand Creation",
     description:
       "Premium signage solutions for hospitals, corporates, restaurants & real estate. 500+ projects. Call: +91 9133721319",
-    images: [`${baseUrl}/images/anirudh-logo.png`],
+    images: [`${baseUrl}/images/anirude-logo.png`],
   },
   icons: {
-    icon: "/images/anirudh-logo.png",
-    shortcut: "/images/anirudh-logo.png",
-    apple: "/images/anirudh-logo.png",
+    icon: "/images/anirude-logo.png",
+    shortcut: "/images/anirude-logo.png",
+    apple: "/images/anirude-logo.png",
   },
   robots: {
     index: true,
@@ -90,7 +90,7 @@ const jsonLd = {
       "@type": "LocalBusiness",
       "@id": `${baseUrl}/#localbusiness`,
       "name": businessInfo.name,
-      "image": `${baseUrl}/images/anirudh-logo.png`,
+      "image": `${baseUrl}/images/anirude-logo.png`,
       "telephone": "+91 9133721319",
       "email": businessInfo.email,
       "url": baseUrl,
@@ -141,7 +141,7 @@ const jsonLd = {
       "@id": `${baseUrl}/#organization`,
       "name": businessInfo.name,
       "url": baseUrl,
-      "logo": `${baseUrl}/images/anirudh-logo.png`,
+      "logo": `${baseUrl}/images/anirude-logo.png`,
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91 9133721319",
@@ -195,11 +195,10 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-sans bg-white text-black min-h-screen flex flex-col antialiased`}>
         <Navbar />
-        <main className="flex-1 pt-[72px] pb-[56px] md:pb-0">
+        <main className="flex-1 pt-[72px]">
           {children}
         </main>
         <Footer />
-        <MobileStickyCTA />
         <FloatingButtons />
       </body>
     </html>

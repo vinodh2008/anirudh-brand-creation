@@ -28,31 +28,24 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md ${
-          isScrolled ? "shadow-sm border-b border-gray-100 py-3" : "py-4"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md h-[80px] flex items-center ${
+          isScrolled ? "shadow-sm border-b border-gray-100" : ""
         }`}
       >
         <nav className="flex justify-between items-center w-full px-6 md:px-20 max-w-[1440px] mx-auto">
           {/* Brand Logo */}
           <Link
             href="/"
-            className="group z-50 flex-shrink-0 flex items-center gap-3 transition-transform duration-300 hover:scale-105 active:scale-95"
+            className="group z-50 relative flex-shrink-0 flex items-center transition-transform duration-300 hover:scale-[1.02] active:scale-95 h-[50px] md:h-[60px] w-[200px] md:w-[240px]"
             aria-label="Anirudh Brand Creation – Home"
           >
-            <div className="h-12 md:h-[60px] lg:h-[70px] flex-shrink-0">
-              <Image
-                src="/images/anirudh-logo.png"
-                alt="Anirudh Brand Creation logo"
-                width={70}
-                height={70}
-                className="h-full w-auto object-contain transition-all duration-300 brightness-100"
-                priority
-              />
-            </div>
-            <div className="flex flex-col justify-center">
-              <span className="text-xl md:text-2xl font-black text-black leading-none tracking-tight">ANIRUDH</span>
-              <span className="text-[10px] md:text-xs font-bold text-[#fe6b00] uppercase tracking-[0.15em] leading-tight mt-0.5">Brand Creation</span>
-            </div>
+            <Image
+              src="/images/anirude-logo.png"
+              alt="Anirudh Brand Creation Logo"
+              fill
+              className="object-contain object-left brightness-100 mix-blend-multiply scale-[1.35] origin-left"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}

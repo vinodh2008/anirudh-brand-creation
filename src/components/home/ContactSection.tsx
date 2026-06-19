@@ -31,64 +31,55 @@ export function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
 
           {/* Left Card: Contact Info */}
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 md:p-8 flex flex-col justify-between shadow-xl rounded-lg">
+          <div className="bg-[#0f0f0f]/80 backdrop-blur-md border border-white/15 p-8 md:p-10 flex flex-col justify-between shadow-2xl rounded-xl">
             <div>
-              <div className="flex items-center gap-3 mb-5">
-                <div className="h-10">
-                  <Image
-                    src="/images/anirudh-logo.png"
-                    alt="Anirudh Brand Creation logo"
-                    width={40}
-                    height={40}
-                    className="h-full w-auto object-contain brightness-0 invert"
-                  />
-                </div>
-                <div className="flex flex-col justify-center">
-                  <span className="text-sm font-black text-white leading-none tracking-tight">ANIRUDH</span>
-                  <span className="text-[8px] font-bold text-[#fe6b00] uppercase tracking-[0.15em] leading-tight mt-0.5">Brand Creation</span>
-                </div>
+              <div className="mb-10 relative h-[50px] md:h-[60px] w-[200px] md:w-[240px] flex items-center justify-start">
+                <Image
+                  src="/images/anirude-logo.png"
+                  alt="Anirudh Brand Creation Logo"
+                  fill
+                  className="object-contain object-left invert mix-blend-screen opacity-90 scale-[1.35] origin-left"
+                />
               </div>
-              <h3 className="text-sm font-bold mb-5 text-[#fe6b00] uppercase tracking-wider hidden">Contact Info</h3>
-              <div className="space-y-4">
+              <h3 className="text-sm font-bold mb-6 text-[#fe6b00] uppercase tracking-wider hidden">Contact Info</h3>
+              <div className="space-y-6">
 
                 {/* Address */}
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-4">
                   <span className="material-symbols-outlined text-[#fe6b00] text-xl flex-shrink-0 mt-0.5">location_on</span>
                   <div>
-                    <h4 className="text-[10px] uppercase tracking-wider text-white/50 font-semibold mb-0.5">Registered Address</h4>
-                    <address className="text-xs text-white/95 leading-relaxed font-medium not-italic">
+                    <h4 className="text-[10px] uppercase tracking-wider text-white/50 font-bold mb-1">Registered Address</h4>
+                    <address className="text-[13px] text-white/95 leading-relaxed font-medium not-italic">
                       {businessInfo.name}<br />
-                      {businessInfo.address.street},<br />
-                      {businessInfo.address.area},<br />
-                      {businessInfo.address.city},<br />
-                      {businessInfo.address.state} – {businessInfo.address.postalCode},<br />
+                      {businessInfo.address.street}, {businessInfo.address.area},<br />
+                      {businessInfo.address.city}, {businessInfo.address.state} – {businessInfo.address.postalCode},<br />
                       {businessInfo.address.country}
                     </address>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Phone */}
-                  <div className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-[#fe6b00] text-xl">call</span>
+                  <div className="flex items-start gap-4">
+                    <span className="material-symbols-outlined text-[#fe6b00] text-xl flex-shrink-0 mt-0.5">call</span>
                     <div>
-                      <h4 className="text-[10px] uppercase tracking-wider text-white/50 font-semibold mb-0.5">Phone</h4>
-                      <a href={businessInfo.phoneUrl} className="text-xs text-white/95 hover:text-[#fe6b00] transition-colors font-medium">
+                      <h4 className="text-[10px] uppercase tracking-wider text-white/50 font-bold mb-1">Phone</h4>
+                      <a href={businessInfo.phoneUrl} className="text-[13px] text-white/95 hover:text-[#fe6b00] transition-colors font-medium">
                         {businessInfo.phone}
                       </a>
                     </div>
                   </div>
 
                   {/* WhatsApp */}
-                  <div className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-[#25D366] text-xl">chat</span>
+                  <div className="flex items-start gap-4">
+                    <span className="material-symbols-outlined text-[#25D366] text-xl flex-shrink-0 mt-0.5">chat</span>
                     <div>
-                      <h4 className="text-[10px] uppercase tracking-wider text-white/50 font-semibold mb-0.5">WhatsApp</h4>
+                      <h4 className="text-[10px] uppercase tracking-wider text-white/50 font-bold mb-1">WhatsApp</h4>
                       <a
                         href={businessInfo.whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs text-white/95 hover:text-[#25D366] transition-colors font-medium"
+                        className="text-[13px] text-white/95 hover:text-[#25D366] transition-colors font-medium"
                       >
                         {businessInfo.whatsapp}
                       </a>
@@ -96,22 +87,22 @@ export function ContactSection() {
                   </div>
 
                   {/* Email */}
-                  <div className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-[#fe6b00] text-xl">mail</span>
+                  <div className="flex items-start gap-4">
+                    <span className="material-symbols-outlined text-[#fe6b00] text-xl flex-shrink-0 mt-0.5">mail</span>
                     <div>
-                      <h4 className="text-[10px] uppercase tracking-wider text-white/50 font-semibold mb-0.5">Email</h4>
-                      <a href={businessInfo.emailUrl} className="text-xs text-white/95 hover:text-[#fe6b00] transition-colors font-medium">
+                      <h4 className="text-[10px] uppercase tracking-wider text-white/50 font-bold mb-1">Email</h4>
+                      <a href={businessInfo.emailUrl} className="text-[13px] text-white/95 hover:text-[#fe6b00] transition-colors font-medium">
                         {businessInfo.email}
                       </a>
                     </div>
                   </div>
 
                   {/* Hours */}
-                  <div className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-[#fe6b00] text-xl">schedule</span>
+                  <div className="flex items-start gap-4">
+                    <span className="material-symbols-outlined text-[#fe6b00] text-xl flex-shrink-0 mt-0.5">schedule</span>
                     <div>
-                      <h4 className="text-[10px] uppercase tracking-wider text-white/50 font-semibold mb-0.5">Business Hours</h4>
-                      <p className="text-xs text-white/95 font-medium">{businessInfo.hours}</p>
+                      <h4 className="text-[10px] uppercase tracking-wider text-white/50 font-bold mb-1">Business Hours</h4>
+                      <p className="text-[13px] text-white/95 font-medium">{businessInfo.hours}</p>
                     </div>
                   </div>
                 </div>
@@ -119,30 +110,30 @@ export function ContactSection() {
             </div>
 
             {/* Action Buttons */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
               <a
                 href={businessInfo.phoneUrl}
-                className="flex items-center justify-center gap-2 bg-[#fe6b00] text-white py-3.5 text-xs font-semibold uppercase tracking-wider hover:bg-orange-600 transition-colors duration-300 shadow-md"
+                className="flex items-center justify-center gap-2 bg-[#fe6b00] text-white py-4 rounded-md text-xs font-bold uppercase tracking-wider hover:bg-[#e05f00] transition-colors duration-300 shadow-lg"
                 aria-label={`Call us at ${businessInfo.phone}`}
               >
-                <span className="material-symbols-outlined text-base">call</span> Call Now
+                <span className="material-symbols-outlined text-lg">call</span> Call Now
               </a>
               <a
                 href={businessInfo.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3.5 text-xs font-semibold uppercase tracking-wider hover:bg-[#1da851] transition-colors duration-300 shadow-md"
-                aria-label="WhatsApp us"
+                className="flex items-center justify-center gap-2 bg-[#25D366] text-white py-4 rounded-md text-xs font-bold uppercase tracking-wider hover:bg-[#20bd5a] transition-colors duration-300 shadow-lg"
+                aria-label="Message us on WhatsApp"
               >
-                <span className="material-symbols-outlined text-base">chat</span> WhatsApp Now
+                <span className="material-symbols-outlined text-lg">chat</span> WhatsApp Now
               </a>
             </div>
           </div>
 
           {/* Right Card: Google Map */}
-          <div className="bg-black/40 backdrop-blur-sm border border-white/10 p-4 rounded-lg shadow-xl flex flex-col gap-3">
-            {/* Embedded Google Map – Replace src with final embed URL if needed */}
-            <div className="relative w-full flex-1 min-h-[300px] bg-gray-900 rounded overflow-hidden">
+          <div className="bg-[#0f0f0f]/80 border border-white/15 rounded-xl shadow-2xl flex flex-col overflow-hidden">
+            {/* Embedded Google Map */}
+            <div className="relative w-full flex-1 min-h-[350px] bg-gray-900">
               <iframe
                 src={businessInfo.googleMapsEmbedUrl}
                 width="100%"
@@ -160,13 +151,12 @@ export function ContactSection() {
               href={businessInfo.googleMapsDirectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 border border-white/30 hover:border-white text-white py-3.5 text-xs font-semibold uppercase tracking-wider hover:bg-white/10 transition-colors duration-300"
+              className="flex items-center justify-center gap-2 bg-[#0a0a0a] border-t border-white/10 hover:bg-[#1a1a1a] text-white py-4 text-xs font-bold uppercase tracking-wider transition-colors duration-300"
               aria-label="View our location on Google Maps"
             >
               <span className="material-symbols-outlined text-base">near_me</span> View Location on Google Maps
             </a>
           </div>
-
         </div>
       </div>
     </section>

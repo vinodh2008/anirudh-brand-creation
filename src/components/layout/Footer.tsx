@@ -10,26 +10,26 @@ export function Footer() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 px-6 md:px-20 py-12 max-w-[1440px] mx-auto">
 
         {/* Column 1: Logo & Branding */}
-        <div className="flex flex-col gap-4 md:col-span-1">
-          <Link href="/" className="group flex items-center gap-3 transition-transform duration-300 hover:scale-105" aria-label="Anirudh Brand Creation – Home">
-            <div className="h-14 lg:h-[70px] flex-shrink-0">
-              <Image
-                src="/images/anirudh-logo.png"
-                alt="Anirudh Brand Creation logo"
-                width={70}
-                height={70}
-                className="h-full w-auto object-contain brightness-0 invert transition-all duration-300"
-              />
-            </div>
-            <div className="flex flex-col justify-center">
-              <span className="text-xl md:text-2xl font-black text-white leading-none tracking-tight">ANIRUDH</span>
-              <span className="text-[10px] md:text-xs font-bold text-[#fe6b00] uppercase tracking-[0.15em] leading-tight mt-0.5">Brand Creation</span>
-            </div>
+        <div className="flex flex-col gap-5 md:col-span-1">
+          <Link
+            href="/"
+            className="group relative inline-flex items-center transition-transform duration-300 hover:scale-[1.02] h-[60px] md:h-[70px] w-[260px] md:w-[300px] mb-4"
+            aria-label="Anirudh Brand Creation – Home"
+          >
+            <Image
+              src="/images/anirude-logo.png"
+              alt="Anirudh Brand Creation Logo"
+              fill
+              className="object-contain object-left invert mix-blend-screen scale-[1.35] origin-left"
+              loading="lazy"
+            />
           </Link>
-          <p className="text-sm font-semibold text-white/90 mt-1">We Create Signs That Create Brands.</p>
-          <p className="text-xs text-gray-400 leading-relaxed">
-            Leading LED Sign Board Manufacturers in Secunderabad &amp; Hyderabad. Delivering premium signage and branding solutions for hospitals, corporate offices, restaurants, and real estate projects.
-          </p>
+          <div className="flex flex-col gap-2">
+            <p className="text-sm font-semibold text-white mt-1">We Create Signs That Create Brands.</p>
+            <p className="text-xs text-gray-400 leading-relaxed">
+              Leading LED Sign Board Manufacturers in Hyderabad &amp; Secunderabad delivering premium signage and branding solutions.
+            </p>
+          </div>
           <div className="flex gap-2.5 mt-2">
             <a
               href={businessInfo.phoneUrl}
