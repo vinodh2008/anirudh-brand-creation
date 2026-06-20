@@ -109,6 +109,9 @@ export function Footer() {
               {businessInfo.address.state} – {businessInfo.address.postalCode},<br />
               {businessInfo.address.country}
             </p>
+            <a href={businessInfo.googleMapsDirectUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-[#fe6b00] hover:text-white transition-colors mb-3 font-semibold">
+              <span className="material-symbols-outlined text-[12px]">directions</span> Get Directions
+            </a>
             <p className="text-xs text-gray-400 mb-2">
               <strong className="text-gray-300">Phone:</strong>{" "}
               <a href={businessInfo.phoneUrl} className="hover:text-[#fe6b00] transition-colors">{businessInfo.phone}</a>

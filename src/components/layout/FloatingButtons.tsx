@@ -4,7 +4,7 @@ import { businessInfo } from "@/config/businessInfo";
 
 export function FloatingButtons() {
   return (
-    <div className="fixed right-4 bottom-6 md:bottom-8 z-50 flex flex-col gap-3">
+    <div className="fixed right-4 bottom-6 md:bottom-8 z-50 flex flex-col gap-3 opacity-70 hover:opacity-100 md:opacity-100 transition-opacity">
       <div className="group relative flex items-center">
         <span className="absolute right-full mr-3 whitespace-nowrap bg-black/80 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest py-1.5 px-3 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
           WhatsApp

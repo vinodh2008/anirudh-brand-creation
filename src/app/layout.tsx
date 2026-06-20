@@ -105,8 +105,8 @@ const jsonLd = {
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 17.4262,
-        "longitude": 78.4908,
+        "latitude": 17.422973,
+        "longitude": 78.497834,
       },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
@@ -149,6 +149,14 @@ const jsonLd = {
         "areaServed": "IN",
         "availableLanguage": ["English", "Hindi", "Telugu"],
       },
+      "location": {
+        "@type": "Place",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 17.422973,
+          "longitude": 78.497834,
+        }
+      }
     },
     {
       "@type": "BreadcrumbList",
@@ -195,7 +203,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-sans bg-white text-black min-h-screen flex flex-col antialiased`}>
         <Navbar />
-        <main className="flex-1 pt-[72px]">
+        <main className="flex-1 pt-[80px]">
           {children}
         </main>
         <Footer />

@@ -28,8 +28,8 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md h-[80px] flex items-center ${
-          isScrolled ? "shadow-sm border-b border-gray-100" : ""
+        className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 h-[80px] flex items-center bg-white ${
+          isScrolled ? "shadow-[0_2px_12px_rgba(0,0,0,0.08)]" : ""
         }`}
       >
         <nav className="flex justify-between items-center w-full px-6 md:px-20 max-w-[1440px] mx-auto">
