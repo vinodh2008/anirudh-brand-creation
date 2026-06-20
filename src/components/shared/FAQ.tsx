@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Script from "next/script";
 
 const faqs = [
   {
@@ -48,7 +49,8 @@ export function FAQ() {
 
   return (
     <section className="py-20 bg-white" id="faq">
-      <script
+      <Script
+        id="faq-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />

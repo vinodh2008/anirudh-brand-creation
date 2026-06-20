@@ -45,16 +45,17 @@ const slides = [
 ];
 
 const stats = [
-  { value: 500, suffix: "+", label: "Projects Completed" },
-  { value: 150, suffix: "+", label: "Corporate Clients" },
+  { value: 1000, suffix: "+", label: "Projects Completed" },
+  { value: 200, suffix: "+", label: "Corporate Clients" },
   { value: 10, suffix: "+", label: "Years Experience" },
-  { value: 5, suffix: "+", label: "Cities Served" },
+  { value: 15, suffix: "+", label: "Cities Served" },
 ];
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(value);
   useEffect(() => {
     let start = 0;
+    setCount(0); // Start from 0 on the client
     const duration = 2000;
     const step = Math.ceil(value / (duration / 16));
     const timer = setInterval(() => {
@@ -86,8 +87,30 @@ export function Hero() {
     return () => clearInterval(timer);
   }, [next]);
 
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => setTouchStart(e.targetTouches[0].clientX);
+  const handleTouchMove = (e: React.TouchEvent) => setTouchEnd(e.targetTouches[0].clientX);
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+    if (isLeftSwipe) next();
+    if (isRightSwipe) prev();
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
+
   return (
-    <section className="relative h-screen min-h-[600px] overflow-hidden bg-black pt-[96px]" aria-label="Hero">
+    <section 
+      className="relative h-screen min-h-[600px] overflow-hidden bg-black pt-[96px]" 
+      aria-label="Hero"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* Slides */}
       {slides.map((slide, i) => (
         <div
